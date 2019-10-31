@@ -11,6 +11,7 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+// event fot deffered banner from show up
 window.addEventListener("beforeinstallprompt", function (event) {
     console.log('beforeinstallprompt event fired');
     event.preventDefault();
