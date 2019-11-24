@@ -1,20 +1,24 @@
+
 var deferredPrompt;
 
-// .register('/sw.js', scope: '/help/')
-// register can get 2 parameters when the second is for scope
-// the default is all folders
+if (!window.Promise) {
+  window.Promise = Promise;
+}
+
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker
-        .register("/sw.js")
-        .then(function () {
-            console.log("Service worker registered!");
+  navigator.serviceWorker
+    .register('/sw.js')
+    .then(function () {
+      console.log('Service worker registered!');
+    })
+    .catch(function(err) {
+      console.log(err);
     });
 }
 
-// event fot deffered banner from show up
-window.addEventListener("beforeinstallprompt", function (event) {
-    console.log('beforeinstallprompt event fired');
-    event.preventDefault();
-    deferredPrompt = event;
-    return false;
+window.addEventListener('beforeinstallprompt', function(event) {
+  console.log('beforeinstallprompt fired');
+  event.preventDefault();
+  deferredPrompt = event;
+  return false;
 });
