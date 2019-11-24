@@ -13,8 +13,6 @@ self.addEventListener('install', function(event) {
           '/index.html',
           '/src/js/app.js',
           '/src/js/feed.js',
-          '/src/js/promise.js',
-          '/src/js/fetch.js',
           '/src/js/material.min.js',
           '/src/css/app.css',
           '/src/css/feed.css',
